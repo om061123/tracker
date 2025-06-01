@@ -1,11 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Daily Planner</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="planner-container">
+        <header>
+            <h1>Task planner</h1>
+            <p class="subtitle">Plan uw dag met gemak</p>
+        </header>
+
+        <main>
+            <section class="form-container">
+                <form id="appointmentForm">
+                    <div class="form-group">
+                        <label for="title">Titel:</label>
+                        <input type="text" id="title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="datetime">Datum en Tijd:</label>
+                        <input type="datetime-local" id="datetime" required>
+                    </div>
+                    
+                    <button type="submit">
+                        Afspraak Toevoegen
+                    </button>
+                </form>
+            </section>
+
+            <section class="appointments-list">
+                <div id="appointmentsList"></div>
+            </section>
+        </main>
+    </div>
+<script src="script.js"></script>
 </body>
 </html>
