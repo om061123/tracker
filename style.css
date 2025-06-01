@@ -1,140 +1,227 @@
- :root {
-            --primary-color: #2196F3;
-            --secondary-color: #FF4081;
-            --surface-color: #FFFFFF;
-            --border-color: #E0E0E0;
-            --text-primary: #263238;
-            --spacing-unit: 8px;
-            --radius-small: 4px;
-            --radius-medium: 8px;
-            --radius-large: 12px;
-            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-            --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
-            --transition: all 0.2s ease;
-        }
+/* root voor alle kleuren en stijlen (mijn favo manier om te werken) */
+:root {
+    --primary-color: #2196F3;
+    --secondary-color: #FF4081;
+    --surface-color: #FFFFFF;
+    --border-color: #E0E0E0;
+    --back-color: #1d1d1d;
+    --spacing-unit: 8px;
+    --radius-small: 4px;
+    --radius-medium: 8px;
+    --radius-large: 12px;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --transition: all 0.2s ease;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family:Arial, Helvetica, sans-serif;
-            line-height: 1.5;
-            background-color: #f5f5f5;
-            color: var(--text-primary);
-        }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    overflow: auto;
+    background: linear-gradient(315deg, rgba(101, 0, 94, 1) 3%, rgba(60, 132, 206, 1) 38%, rgba(48, 238, 226, 1) 68%, rgba(255, 25, 25, 1) 98%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
+    color: var(--primary-color);
+}
 
-        .planner-container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 1rem;
-        }
+.planner-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
 
-        header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
 
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
+    50% {
+        background-position: 100% 100%;
+    }
 
-        .subtitle {
-            font-size: 1rem;
-            opacity: 0.8;
-        }
+    100% {
+        background-position: 0% 0%;
+    }
+}
 
-        .form-container {
-            background: var(--surface-color);
-            padding: 1.5rem;
-            border-radius: var(--radius-medium);
-            box-shadow: var(--shadow-sm);
-            margin-bottom: 2rem;
-        }
+.wave {
+    background: rgb(255 255 255 / 25%);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 12em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
 
-        .form-group {
-            margin-bottom: calc(var(--spacing-unit) * 2);
-        }
+.wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.8;
+}
 
-        label {
-            display: block;
-            margin-bottom: calc(var(--spacing-unit) / 2);
-            font-weight: 500;
-            color: var(--text-primary);
-        }
+.wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 20s -1s reverse infinite;
+    opacity: 0.9;
+}
 
-        input[type="text"],
-        input[type="datetime-local"] {
-            width: 100%;
-            padding: calc(var(--spacing-unit) * 0.75);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-small);
-            background: transparent;
-            transition: var(--transition);
-        }
+@keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
 
-        input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
-        }
+    25% {
+        transform: translateX(-25%);
+    }
 
-        button {
-            background-color: var(--primary-color);
-            color: white;
-            padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 2);
-            border: none;
-            border-radius: var(--radius-medium);
-            cursor: pointer;
-            font-weight: 500;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: calc(var(--spacing-unit) / 2);
-        }
+    50% {
+        transform: translateX(-50%);
+    }
 
-        button:hover {
-            background-color: #1976D2;
-            transform: translateY(-1px);
-        }
+    75% {
+        transform: translateX(-25%);
+    }
 
-        .appointments-list {
-            display: grid;
-            gap: 1rem;
-        }
+    100% {
+        transform: translateX(1);
+    }
+}
 
-        .appointment-item {
-            background: var(--surface-color);
-            padding: 1rem;
-            border-radius: var(--radius-medium);
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: var(--transition);
-        }
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
 
-        .appointment-item:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
+h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--surface-color);
+}
 
-        .appointment-details {
-            flex-grow: 1;
-        }
+p {
 
-        .appointment-actions {
-            display: flex;
-            gap: calc(var(--spacing-unit));
-            margin-left: calc(var(--spacing-unit) * 2);
-        }
+    color: var(--surface-color);
 
-        .delete-btn {
-            background-color: var(--secondary-color);
-        }
+}
 
-       
+.subtitle {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.form-container {
+    background: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+label {
+    display: block;
+    margin-bottom: calc(var(--spacing-unit) / 2);
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+input[type="text"],
+input[type="datetime-local"] {
+    width: 100%;
+    padding: calc(var(--spacing-unit) * 0.75);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-small);
+    background: transparent;
+    transition: var(--transition);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 2);
+    border: none;
+    border-radius: var(--radius-medium);
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit) / 2);
+}
+
+button:hover {
+    background-color: #1976D2;
+    transform: translateY(-1px);
+}
+
+.appointments-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.appointment-item {
+    background: var(--surface-color);
+    padding: 1rem;
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: var(--transition);
+}
+
+.appointment-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.appointment-details {
+    flex-grow: 1;
+}
+
+.appointment-actions {
+    display: flex;
+    gap: calc(var(--spacing-unit));
+    margin-left: calc(var(--spacing-unit) * 2);
+}
+
+.delete-btn {
+    background-color: var(--secondary-color);
+}
+
+
+@media (max-width: 600px) {
+    .planner-container {
+        padding: 0.5rem;
+    }
+
+    .form-group {
+        margin-bottom: calc(var(--spacing-unit));
+    }
+
+    .appointment-actions {
+        margin-left: calc(var(--spacing-unit));
+        gap: calc(var(--spacing-unit) / 2);
+    }
+}
