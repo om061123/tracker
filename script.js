@@ -33,5 +33,11 @@ document
             updateDisplay();
         }
 
+ // hier kunnen we de status wijzigen 
+        function toggleAppointment(id) {
+            const index = appointments.findIndex(app => app.id === id);
+            appointments[index].completed = !appointments[index].completed;
+            saveAppointments();
+            updateDisplay();
+        }
 
-        
