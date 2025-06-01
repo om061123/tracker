@@ -200,6 +200,13 @@ button:hover {
     flex-grow: 1;
 }
 
+        .appointment-description {
+            font-size: 0.9rem;
+            border: var(--primary-color);
+            color: var(--text-primary);
+            margin-top: 0.25rem;
+        }
+
 .appointment-actions {
     display: flex;
     gap: calc(var(--spacing-unit));
