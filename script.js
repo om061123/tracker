@@ -17,7 +17,7 @@ document
     });
     saveAppointments();
     this.reset();
-
+    updateDisplay();
   });
 
 
