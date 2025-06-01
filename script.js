@@ -26,3 +26,12 @@ document
             localStorage.setItem('appointments', JSON.stringify(appointments));
         }
 
+  // hier kunnen we appintments verwijderen
+        function deleteAppointment(id) {
+            appointments = appointments.filter(app => app.id !== id);
+            saveAppointments();
+            updateDisplay();
+        }
+
+
+        
