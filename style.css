@@ -202,9 +202,19 @@ button:hover {
 
 .appointment-description {
     font-size: 0.9rem;
-    border: var(--primary-color);
+ 
     color: var(--text-primary);
     margin-top: 0.25rem;
+}
+
+#description {
+    font-family: Arial, Helvetica, sans-serif;
+    border: var(--back-color) 1px solid;
+    border-radius: var(--radius-small);
+    background: transparent;
+    transition: var(--transition);
+    padding: calc(var(--spacing-unit) * 0.75);
+
 }
 
 .appointment-actions {
