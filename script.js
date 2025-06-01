@@ -1,4 +1,4 @@
-//    hier gaan we alle appointments opslaan in de localStorage
+//    hier gaan we alle appointments in de localStorage steken
 let appointments = JSON.parse(localStorage.getItem("appointments")) || [];
 
 document
@@ -19,3 +19,10 @@ document
     this.reset();
 
   });
+
+
+   // hier gaan we de appointments opslaan
+        function saveAppointments() {
+            localStorage.setItem('appointments', JSON.stringify(appointments));
+        }
+
