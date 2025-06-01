@@ -73,3 +73,5 @@ document
             });
         }
 
+         updateDisplay();
+
