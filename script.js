@@ -41,3 +41,35 @@ document
             updateDisplay();
         }
 
+                // hier kunnen we de weergave bewerken
+        function updateDisplay() {
+            const container = document.getElementById('appointmentsList');
+            container.innerHTML = '';
+
+            // alles word hier gesorteerd 
+            const sortedAppointments = [...appointments].sort((a, b) => 
+                new Date(a.datetime) - new Date(b.datetime)
+            );
+
+            sortedAppointments.forEach(appointment => {
+                const div = document.createElement('div');
+                div.className = 'appointment-item';
+                
+                const statusClass = appointment.completed ? 'completed' : '';
+                div.innerHTML = `
+                    <span>${appointment.title}</span>
+                    <span>${new Date(appointment.datetime).toLocaleString('nl-NL')}</span>
+                    <div class="appointment-actions">
+                        <button onclick="toggleAppointment(${appointment.id})">
+                            ${appointment.completed ? 'Herstart' : 'Voltooid'}
+                        </button>
+                        <button class="delete-btn" onclick="deleteAppointment(${appointment.id})">
+                            Verwijder
+                        </button>
+                    </div>
+                `;
+                
+                container.appendChild(div);
+            });
+        }
+
